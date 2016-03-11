@@ -1,0 +1,23 @@
+{
+  "name": "js-graphs",
+  "version": "0.1.0",
+  "description": "Javascript chart frameworks",
+  "main": ".",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avonengel/js-graphs.git"
+  },
+  "keywords": [
+    "javascript",
+    "chart"
+  ],
+  "author": "Axel von Engel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/avonengel/js-graphs/issues"
+  },
+  "homepage": "https://github.com/avonengel/js-graphs#readme"
+}
