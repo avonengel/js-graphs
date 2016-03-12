@@ -5,7 +5,7 @@
   "main": ".",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "browser-sync start --server"
+    "dev": "browser-sync start --server --browser chrome --files \"**/*.html, **/*.css, **/*.js\""
   },
   "repository": {
     "type": "git",
