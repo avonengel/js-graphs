@@ -1,4 +1,4 @@
-var chart = dc.scatterPlot("#scatter-chart");
+var myScatterChart = dc.scatterPlot("#scatter-chart", "scatter");
 
 var data = d3.range(10).map(function() {
   return d3.range(2).map(Math.random);
@@ -11,19 +11,18 @@ var ndx = crossfilter(data),
   }),
   allGroup = xDimension.group();
 
-chart
+myScatterChart
   .width(768)
   .height(480)
   .x(d3.scale.linear())
   .y(d3.scale.linear())
   .symbolSize(8)
   .clipPadding(10)
-  .yAxisLabel("This is the Y Axis!")
   .dimension(xDimension)
   .transitionDuration(0)
+  // .brushOn(false)
   .group(allGroup);
 
-chart.render();
 
 function addData() {
   var countToAdd = +document.getElementById('numberOfItems').value;
@@ -31,11 +30,29 @@ function addData() {
     return d3.range(2).map(Math.random);
   });
   ndx.add(newData);
-  chart.redraw();
+  dc.redrawAll('scatter');
 }
 document.getElementById("addButton").onclick = addData;
 
 document.getElementById("clearButton").onclick = function() {
   ndx.remove();
-  chart.redraw();
+  myScatterChart.redraw();
 }
+
+var scatterHistogram = dc.barChart('#scatter-histogram', 'scatter');
+var binWidth = 0.1;
+var histogramGroup = xDimension.group(function(d) {
+  return binWidth * Math.floor(d[0] / binWidth);
+});
+scatterHistogram
+  .width(768)
+  .height(480)
+  .x(d3.scale.linear())
+  .elasticY(true)
+  .xUnits(dc.units.fp.precision(binWidth))
+  .dimension(xDimension)
+  .gap(0)
+  // .transitionDuration(0)
+  // .brushOn(false)
+  .group(histogramGroup);
+dc.renderAll('scatter');
