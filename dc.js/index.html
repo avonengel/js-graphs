@@ -6,15 +6,31 @@
 </head>
 
 <body>
-  <a href="/">back to homepage</a>
-  <p><a href="http://dc-js.github.io/dc.js/">DC.js homepage</a>
-    <a href="http://square.github.io/crossfilter/">Crossfilter homepage</a>
-    <a href="https://d3js.org/">D3.js homepage</a>
-    <a href="http://getbootstrap.com/">Bootstrap homepage</a>
-  </p>
-
-  <div id='chart'><span>My first DC chart</span></div>
-
+  <ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li class="active">DC.js</li>
+  </ol>
+  <div class="page-header">
+    <h1>DC.js charts</h1>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <ul>
+          <li><a href="http://dc-js.github.io/dc.js/">DC.js homepage</a></li>
+          <li><a href="http://square.github.io/crossfilter/">Crossfilter homepage</a></li>
+          <li><a href="https://d3js.org/">D3.js homepage</a></li>
+          <li><a href="http://getbootstrap.com/">Bootstrap homepage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h2>My first chart</h2>
+        <div id='chart'></div>
+      </div>
+    </div>
+  </div>
 
   <script src="/node_modules/d3/d3.js"></script>
   <script src="/node_modules/crossfilter/crossfilter.js"></script>
