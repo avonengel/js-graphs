@@ -41,16 +41,19 @@ document.getElementById("clearButton").onclick = function() {
 
 var scatterHistogram = dc.barChart('#scatter-histogram', 'scatter');
 var binWidth = 0.1;
-var histogramGroup = xDimension.group(function(d) {
+var binDimension = ndx.dimension(function(d) {
   return binWidth * Math.floor(d[0] / binWidth);
 });
+var histogramGroup = binDimension.group();
+
+
 scatterHistogram
   .width(768)
   .height(480)
   .x(d3.scale.linear())
   .elasticY(true)
   .xUnits(dc.units.fp.precision(binWidth))
-  .dimension(xDimension)
+  .dimension(binDimension)
   .gap(0)
   // .transitionDuration(0)
   // .brushOn(false)
